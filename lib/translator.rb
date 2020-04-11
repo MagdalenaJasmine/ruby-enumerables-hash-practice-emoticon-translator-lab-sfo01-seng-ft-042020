@@ -24,10 +24,16 @@ end
 def get_english_meaning(file_path, emoticon)
   input = YAML.load_file(file_path)
   trash = load_library(file_path)
-  translate_map = input.reduce({}) do |memo, (key, value)|
-    memo[value[1]] = key
-    memo
+  translate_map = {} 
+  input.each do |key, value|
+    translate_map[value[1]] = key
   end
+  
+  
+  # translate_map = input.reduce({}) do |memo, (key, value)|
+  #   memo[value[1]] = key
+  #   memo
+  # end
   translate_map[emoticon] ? translate_map[emoticon] : "Sorry, that emoticon was not found"
 end
 
