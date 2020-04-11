@@ -34,11 +34,9 @@ end
 def get_japanese_emoticon(file_path, emoticon)
   input = YAML.load_file(file_path)
   trash = load_library(file_path)
-  
-  translate_map = input.reduce({}) do | memo, (key, value)|
-    memo[value[0]] = value[1]
-    memo
+  translate_map = {} 
+  input.each do |key, value|
+    translate_map[value[0]] = value[1]
   end
-  
   translate_map[emoticon] ? translate_map[emoticon] : "Sorry, that emoticon was not found"
 end
