@@ -35,7 +35,7 @@ def get_japanese_emoticon(file_path, emoticon)
   input = YAML.load_file(file_path)
   trash = load_library(file_path)
   
-  translate_mape = input.reduce({}) do | memo, (key, value)|
+  translate_map = input.reduce({}) do | memo, (key, value)|
     memo[value[0]] = value[1]
     memo
   end
