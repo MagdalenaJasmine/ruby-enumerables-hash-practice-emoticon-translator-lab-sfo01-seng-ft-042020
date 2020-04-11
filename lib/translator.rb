@@ -28,12 +28,6 @@ def get_english_meaning(file_path, emoticon)
   input.each do |key, value|
     translate_map[value[1]] = key
   end
-  
-  
-  # translate_map = input.reduce({}) do |memo, (key, value)|
-  #   memo[value[1]] = key
-  #   memo
-  # end
   translate_map[emoticon] ? translate_map[emoticon] : "Sorry, that emoticon was not found"
 end
 
